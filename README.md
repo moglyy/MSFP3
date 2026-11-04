@@ -27,7 +27,7 @@ El caso de estudio representa la **dinámica musculoesquelética** mediante el m
 6. [Análisis temporal y de estabilidad](#analisis)
 7. [Condiciones de simulación y señales](#senales)
 8. [Implementación en MATLAB, Simulink y Simscape](#matlab)
-9. [Estrategia de control in silico y sintonización PID](#pid)
+9. [Estrategia de control in silico y sintonización PI](#pi)
 10. [Reproducción en Python](#python)
 11. [Diagrama biológico y correspondencia fisiológica](#biologico)
 12. [Resultados y verificación cruzada](#resultados)
@@ -45,7 +45,7 @@ El caso de estudio representa la **dinámica musculoesquelética** mediante el m
 
 Esta práctica tiene como propósito **modelar, analizar, simular y controlar la respuesta dinámica del sistema musculoesquelético** ante excitaciones de fuerza. Se aborda la caracterización del tejido pasivo y activo empleando una combinación de compliancias ($C_s$ y $C_p$) y amortiguación viscosa ($R$). Mediante la **analogía fuerza-voltaje**, el sistema mecánico se transforma en un circuito eléctrico equivalente para analizar su comportamiento dinámico.
 
-A partir del **principio de superposición**, se deducen analíticamente las componentes de respuesta parciales $F_{s1}(t)$ y $F_{s2}(t)$ debidas a la fuerza externa $F(t)$ y la fuerza activa interna $F_0(t) = \alpha F(t)$, obteniendo la función de transferencia global $G(s) = \frac{F_s(s)}{F(s)}$. Se evalúa la condición de un **individuo sano (control)** y se simula una condición de **atrofia muscular (caso)** caracterizada por un incremento drástico en el amortiguamiento viscoso ($R$). Se realiza el análisis de estabilidad y error en estado estacionario. Posteriormente, se implementa un **controlador PID *in silico*** tomando la respuesta del individuo sano como señal de referencia. Todos los modelos se validan en MATLAB, Simulink, Simscape Electrical y Python.
+A partir del **principio de superposición**, se deducen analíticamente las componentes de respuesta parciales $F_{s1}(t)$ y $F_{s2}(t)$ debidas a la fuerza externa $F(t)$ y la fuerza activa interna $F_0(t) = \alpha F(t)$, obteniendo la función de transferencia global $G(s) = \frac{F_s(s)}{F(s)}$. Se evalúa la condición de un **individuo sano (control)** y se simula una condición de **atrofia muscular (caso)** caracterizada por un incremento drástico en el amortiguamiento viscoso ($R$). Se realiza el análisis de estabilidad y error en estado estacionario. Posteriormente, se implementa un **controlador PI *in silico*** tomando la respuesta del individuo sano como señal de referencia. Todos los modelos se validan en MATLAB, Simulink, Simscape Electrical y Python.
 
 **Palabras clave:** Sistema musculoesquelético; Modelado matemático; Analogía fuerza-voltaje; Función de transferencia; Controlador PID; Atrofia muscular.
 
@@ -72,7 +72,7 @@ Obtener el modelo matemático explícito y circuito equivalente de un compartime
 - Calcular el error en estado estacionario $e_{ss}$ y los polos del sistema en lazo abierto.
 - Implementar la simulación en Simulink (`sistema4.slx`) mediante ecuaciones diferenciales, función de transferencia y componentes físicos de Simscape Electrical.
 - Diseñar la estrategia de control por retroalimentación negativa donde la referencia es la salida del individuo sano $x_{\text{control}}(t)$.
-- Sintonizar las ganancias del controlador PID ($k_P$, $k_I$, $k_D$) mediante la herramienta *Tune*.
+- Sintonizar las ganancias del controlador PI ($k_P$, $k_I$,) mediante la herramienta *Tune*.
 - Validar y comparar numéricamente los resultados utilizando cuadernos computacionales de MATLAB (`Trinidad23212240.mlx`) y scripts en Python (`Trinidad23212240.py`).
 
 [Volver al contenido](#contenido)
@@ -329,7 +329,7 @@ $$
 e(t) = x_{\text{control}}(t) - x_{\text{caso}}(t)
 $$
 
-El controlador PID procesa esta diferencia y aplica la acción de control $u(t)$ sobre el modelo del paciente (Tratamiento):
+El controlador PI procesa esta diferencia y aplica la acción de control $u(t)$ sobre el modelo del paciente (Tratamiento):
 
 $$
 u(t) = k_P e(t) + k_I \int_0^t e(\tau)\,d\tau + k_D \frac{de(t)}{dt}
@@ -423,7 +423,7 @@ Mediante Visual Studio Code y el script [`Trinidad23212240.py`](Trinidad23212240
 
 1. Definir las funciones de transferencia de control y caso.
 2. Calcular la respuesta al impulso en lazo abierto.
-3. Construir el sistema en lazo cerrado con las ganancias $k_P, k_I, k_D$.
+3. Construir el sistema en lazo cerrado con las ganancias $k_P, k_I.
 4. Graficar y exportar las respuestas en la figura [`Musculoesqueletico_python.pdf`](Musculoesqueletico_python.pdf).
 
 [Volver al contenido](#contenido)
@@ -451,16 +451,16 @@ El esquema representativo del modelo muscular y la equivalencia biológica se pr
 
 Se comparan las curvas temporales para las tres condiciones:
 
-- **Línea Azul:** Individuo Sano (Control de Referencia).
-- **Línea Roja:** Paciente con Atrofia (Caso en Lazo Abierto).
-- **Línea Verde:** Paciente Tratado (Caso con Controlador PID).
+-  Individuo Sano (Control de Referencia).
+-  Paciente con Atrofia (Caso en Lazo Abierto).
+-  Paciente Tratado (Caso con Controlador PI).
 
 ### Archivos de resultados del repositorio
 
 | Simulación / Evidencia | Archivo en el repositorio |
 |---|---|
 | Análisis analítico manuscrito | [`AnalisisMatematicoP3.pdf`](AnalisisMatematicoP3.pdf) |
-| Captura de sintonización de ganancias PID | [`gananciasPI.png`](gananciasPI.png) |
+| Captura de sintonización de ganancias PI | [`gananciasPI.png`](gananciasPI.png) |
 | Diagrama biológico de correspondencia | [`Musculoesqueletico.png`](Musculoesqueletico.png) |
 | Respuestas al impulso en MATLAB | [`Control y caso.matlab.pdf`](Control%20y%20caso.matlab.pdf) |
 | Respuestas al impulso en Python | [`Musculoesqueletico_python.pdf`](Musculoesqueletico_python.pdf) |
@@ -590,7 +590,7 @@ Se comparan las curvas temporales para las tres condiciones:
 ### Etapa 3. Control y verificación in silico
 
 - [x] Implementar retroalimentación con referencia $x_{\text{control}}(t)$.
-- [x] Sintonizar $k_P, k_I, k_D$ con la herramienta *Tune* ([`gananciasPI.png`](gananciasPI.png)).
+- [x] Sintonizar $k_P, k_I$, k_D$ con la herramienta *Tune* ([`gananciasPI.png`](gananciasPI.png)).
 - [x] Exportar la figura de MATLAB ([`Control y caso.matlab.pdf`](Control%20y%20caso.matlab.pdf)) y ejecutar el script en Python ([`Trinidad23212240.py`](Trinidad23212240.py)).
 
 ### Etapa 4. Documentación
