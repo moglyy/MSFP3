@@ -235,7 +235,7 @@ Utilizando el afinador del bloque `PID Controller` de Simulink (configurado en m
 El siguiente esquema elaborado en BioRender ilustra la correspondencia anatómica y las variables mecánicas empleadas para la analogía eléctrica, detallando la diferencia entre el estado saludable del músculo y la alteración originada por atrofia muscular que provoca un incremento en la viscosidad.
 
 <div align="center">
-  <img src="Musculoesqueletico_2.jpg" alt="Diagrama Biológico Musculoesquelético (Control vs Caso)" width="700" style="border-radius: 8px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1);">
+  <img src="Musculoesqueletico.png" alt="Diagrama Biológico Musculoesquelético (Control vs Caso)" width="700" style="border-radius: 8px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1);">
   <p><em>Comparación anatómica: Sujeto Sano vs. Atrofia Muscular (Caso).</em></p>
 </div>
 
