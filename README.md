@@ -1,4 +1,3 @@
-[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=moglyy/MSFP3)
 # Práctica 3 — Modelado y control del sistema musculoesquelético
 
 Esta práctica integra el modelado viscoelástico del tejido muscular, la analogía electromecánica fuerza-voltaje, el análisis matemático analítico mediante el principio de superposición, el análisis temporal y de estabilidad, la simulación computacional de la patología de atrofia muscular, el diseño y sintonización de un controlador PI *in silico*, y la verificación cruzada mediante MATLAB, Simulink, Simscape Electrical y Python.
@@ -39,7 +38,7 @@ El caso de estudio representa la **dinámica musculoesquelética** mediante el m
 
  8. [Implementación en MATLAB, Simulink y Simscape](#matlab)
 
- 9. [Estrategia de control in silico y sintonización PI](#pid)
+ 9. [Estrategia de control in silico y sintonización PI](#pi)
 
 10. [Diagrama biológico y correspondencia fisiológica](#biologico)
 
@@ -320,7 +319,7 @@ Utilizando el afinador del bloque `PID Controller` de Simulink (configurado en m
 
 ## Diagrama biológico y correspondencia fisiológica
 
-El esquema superior ilustra la correspondencia anatómica y las variables mecánicas empleadas para la analogía eléctrica, detallando la diferencia entre el estado saludable del músculo y la alteración originada por atrofia muscular que provoca un incremento en la viscosidad de los tejidos.
+El esquema biológico elaborado en BioRender ilustra la correspondencia anatómica y las variables mecánicas empleadas para la analogía eléctrica, detallando la diferencia entre el estado saludable del músculo y la alteración originada por atrofia muscular que provoca un incremento en la viscosidad de los tejidos.
 
 | Elemento mecánico | Equivalente eléctrico | Estructura biológica asociada | 
 | ----- | ----- | ----- | 
@@ -414,7 +413,7 @@ flowchart TD
 
 ### Etapa 4. Documentación
 
-* \[x\] Incluir el diagrama biológico usando etiquetas HTML ([`Musculoesqueletico.jpg`](Musculoesqueletico.jpg)).
+* \[x\] Incluir el diagrama biológico de BioRender ([`Musculoesqueletico.jpg`](Musculoesqueletico.jpg)).
 
 * \[x\] Publicar el repositorio con sus fuentes y archivo [`CITATION.cff`](CITATION.cff).
 
@@ -469,7 +468,7 @@ Archivos contenidos en la raíz de este repositorio:
 
 6. Figuras de resultados en PDF: [`Control y caso.matlab.pdf`](Control%20y%20caso.matlab.pdf) y [`Musculoesqueletico_python.pdf`](Musculoesqueletico_python.pdf).
 
-7. Diagrama biológico incrustado vía HTML [`Musculoesqueletico.jpg`](Musculoesqueletico.jpg) y archivo [`CITATION.cff`](CITATION.cff).
+7. Diagrama biológico incrustado y documentado con [`Musculoesqueletico.jpg`](Musculoesqueletico.jpg) y archivo [`CITATION.cff`](CITATION.cff).
 
 [Volver al contenido](#contenido)
 
