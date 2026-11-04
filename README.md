@@ -1,3 +1,4 @@
+[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=moglyy/MSFP3)
 # Práctica 3— Modelado y control del sistema musculoesquelético
 
 Esta práctica integra el modelado viscoelástico del tejido muscular, la analogía electromecánica fuerza-voltaje, el análisis matemático analítico mediante el principio de superposición, el análisis temporal y de estabilidad, la simulación computacional de la patología de atrofia muscular, el diseño y sintonización de un controlador PI *in silico*, y la verificación cruzada mediante MATLAB, Simulink, Simscape Electrical y Python.
